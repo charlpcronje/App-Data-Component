@@ -1,0 +1,43 @@
+/* src/app/components/app-data/app-data.component.scss */
+.overlay {
+    display: flex;
+}
+
+.left-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.resizable-bar {
+    resize: vertical;
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.right-bar {
+    width: 300px;
+    border-left: 1px solid #ccc;
+    padding: 5px;
+}
+
+.dom-tree {
+    overflow: auto;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.log {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.warn {
+    color: orange;
+}

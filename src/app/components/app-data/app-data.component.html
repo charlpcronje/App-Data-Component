@@ -1,0 +1,41 @@
+<!-- src/app/components/app-data/app-data.component.html -->
+<div class="overlay" *ngIf="isOverlayVisible">
+    <div class="left-bar">
+        <div class="resizable-bar top-bar">
+            <div>Top Bar: Routes and State</div>
+            <div *ngFor="let route of routes">
+                <span [class.active]="route === currentRoute">{{ route }}</span>
+            </div>
+        </div>
+        <div class="resizable-bar middle-bar">
+            <div>Middle Bar: Properties</div>
+            <div *ngFor="let property of properties">
+                <div (click)="toggleNode(property)">
+                    {{ property.name }} <span *ngIf="property.expanded">-</span><span *ngIf="!property.expanded">+</span>
+                </div>
+                <div *ngIf="property.expanded">
+                    <div *ngFor="let child of property.children" (click)="showNodeInfo(child)">
+                        {{ child.name }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="resizable-bar bottom-bar">
+            <div>Bottom Bar: Console</div>
+            <div *ngFor="let log of logs">
+                <span [ngClass]="log.type">{{ log.message }}</span>
+                <small>{{ log.source }}</small>
+            </div>
+        </div>
+    </div>
+    <div class="right-bar">
+        <div class="dom-tree">
+            <div *ngFor="let node of domTree.children" [ngStyle]="node.styles">
+                {{ node.tagName }}
+                <div *ngFor="let child of node.children" [ngStyle]="child.styles">
+                    {{ child.tagName }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<!-- src/app/components/dynamic-loader/dynamic-loader.component.html -->
+<ng-container [ngSwitch]="component">
+    <app-list *ngSwitchCase="component" [data]="data"></app-list>
+    <app-document-list *ngSwitchCase="component" [data]="data"></app-document-list>
+    <app-video-list *ngSwitchCase="component" [data]="data"></app-video-list>
+</ng-container>
